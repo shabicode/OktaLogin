@@ -27,7 +27,9 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/@okta/okta-signin-widget/dist/js/okta-sign-in.min.js"
+            ]
           },
           "configurations": {
             "production": {
