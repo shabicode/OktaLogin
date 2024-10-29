@@ -1,0 +1,8 @@
+{
+    "/oauth2": {
+      "target": "https://dev-87028924.okta.com",
+      "secure": true,
+      "changeOrigin": true
+    }
+  }
+  

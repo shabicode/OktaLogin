@@ -1,23 +1,23 @@
 import { Injectable } from '@angular/core';
-declare let OktaSignIn: any;
+import OktaAuth from '@okta/okta-auth-js';
+import { oktaConfig } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OktaService {
-  widget: any;
-  
-  constructor() {
-    this.widget = new OktaSignIn({
-      baseUrl: 'https://dev-87028924.okta.com/oauth2/default',
-      clientId: '0oakn20excsRZPY2w5d7',
-      redirectUri: 'http://localhost:4200',
-      authParams: {
-        responseType: ['id_token', 'token']
-      }
-    })}
+  public oktaAuth = new OktaAuth(oktaConfig);  // Usa la configuración aquí
 
-   getWidget() {
-    return this.widget;
-   }
+  login() {
+    return this.oktaAuth.signInWithRedirect();
+  }
+
+  logout() {
+    return this.oktaAuth.signOut();
+  }
+
+  async isAuthenticated(): Promise<boolean> {
+    return !!(await this.oktaAuth.tokenManager.get('idToken'));
+  }
 }
+
