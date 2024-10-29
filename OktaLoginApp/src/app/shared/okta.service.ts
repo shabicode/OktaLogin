@@ -6,7 +6,7 @@ import { oktaConfig } from '../environments/environment';
   providedIn: 'root'
 })
 export class OktaService {
-  public oktaAuth = new OktaAuth(oktaConfig);  // Usa la configuración aquí
+  public oktaAuth = new OktaAuth(oktaConfig);
 
   login() {
     return this.oktaAuth.signInWithRedirect();

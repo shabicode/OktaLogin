@@ -21,7 +21,7 @@ export class LoginComponent  implements OnInit{
     if (isCallback) {
       await this.oktaService.oktaAuth.handleRedirect();
       this.isAuthenticated = await this.oktaService.isAuthenticated();
-      this.router.navigate(['/']); // Redirige a la página principal o donde desees
+      this.router.navigate(['/']); 
     } else {
       this.isAuthenticated = await this.oktaService.isAuthenticated();
     }
