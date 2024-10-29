@@ -1,0 +1,6 @@
+<div *ngIf="!isAuthenticated">
+    <button (click)="login()">Iniciar sesión con Okta</button>
+  </div>
+  <div *ngIf="isAuthenticated">
+    <p>Sesión iniciada. Redirigiendo...</p>
+</div>
