@@ -14,21 +14,18 @@ export class LoginComponent  implements OnInit{
   isAuthenticated = false;
 
   constructor(private oktaService: OktaService, private router: Router) {}
-
-  async ngOnInit() {
-    const isCallback = window.location.pathname === '/callback';
-    
-    if (isCallback) {
-      await this.oktaService.oktaAuth.handleRedirect();
-      this.isAuthenticated = await this.oktaService.isAuthenticated();
-      this.router.navigate(['/']); 
-    } else {
-      this.isAuthenticated = await this.oktaService.isAuthenticated();
+  ngOnInit(): void {
+    if (window.location.pathname === '/callback') {
+      this.oktaService.handleAuthentication();
     }
   }
 
   login() {
     this.oktaService.login();
+  }
+
+  logout() {
+    this.oktaService.logout();
   }
 
 }
