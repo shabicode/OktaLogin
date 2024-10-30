@@ -8,3 +8,4 @@ export const oktaConfig: OktaAuthOptions = {
     responseType: ['code'],  
     pkce: true,  
   };
+  
