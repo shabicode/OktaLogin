@@ -153,8 +153,31 @@ export class LoginComponent  implements OnInit{
 ng serve 
 
 ```
+
 ------------
 
+
+###### EXTRA NOTES
+
+To allow CORS requests from http://localhost:4200 in Okta, follow these steps in the Okta Admin Console:
+
+Log in to Okta:
+
+Go to https://login.okta.com/ and sign in to your Okta account.
+Navigate to Trusted Origins:
+
+In the Admin panel, go to Security in the side menu.
+Select API and then click on Trusted Origins.
+Add a New Trusted Origin:
+
+- Click on Add Origin to create a new origin.
+- Fill in the fields as follows:
+- Origin URL: Enter http://localhost:4200, which is the origin of your Angular development application.
+- Type: Select both CORS and Redirect to allow redirection and CORS requests.
+- Save Changes:
+
+Click Save to save the trusted origin.
+------------
 
 
 
