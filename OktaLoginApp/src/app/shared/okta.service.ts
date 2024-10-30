@@ -6,7 +6,7 @@ import { oktaConfig } from '../environments/environment';
   providedIn: 'root'
 })
 export class OktaService {
-  public oktaAuth = new OktaAuth(oktaConfig);  // Usa la configuración aquí
+  public oktaAuth = new OktaAuth(oktaConfig);
 
   login() {
     return this.oktaAuth.signInWithRedirect();
@@ -18,6 +18,12 @@ export class OktaService {
 
   async isAuthenticated(): Promise<boolean> {
     return !!(await this.oktaAuth.tokenManager.get('idToken'));
+  }
+
+  async handleAuthentication() {
+    const tokens = await this.oktaAuth.token.parseFromUrl();
+    this.oktaAuth.tokenManager.setTokens(tokens.tokens);
+    window.location.replace('/');
   }
 }
 
